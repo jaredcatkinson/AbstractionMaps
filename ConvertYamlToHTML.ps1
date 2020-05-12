@@ -1,4 +1,7 @@
-$yaml = ConvertFrom-Yaml -Path C:\Users\analyst\Desktop\kerberoasting.yaml
+foreach ($yamlfile in (Get-ChildItem *.yaml))
+{
+
+ConvertFrom-Yaml -Path $yamlfile.FullName
 
 @"
 <html>
@@ -28,7 +31,7 @@ $yaml = ConvertFrom-Yaml -Path C:\Users\analyst\Desktop\kerberoasting.yaml
                 }
             </style>
         </head>
-"@
+"@ | Out-File -FilePath "$($yamlfile.Name.Split('.')[0]).html" 
 
 @"
     <body>
@@ -36,12 +39,12 @@ $yaml = ConvertFrom-Yaml -Path C:\Users\analyst\Desktop\kerberoasting.yaml
             <tr>
                 <th colspan="$($yaml.header.colspan)" id="th01">$($yaml.header.name)</th>
             </tr>
-"@
+"@ | Out-File -FilePath "$($yamlfile.Name.Split('.')[0]).html" -Append
 
 foreach($row in $yaml.rows)
 {
-    "            <tr>"
-    "                <td style=`"background-color:`#FFFFFF`">$($row.name)</td>"
+    "            <tr>" | Out-File -FilePath "$($yamlfile.Name.Split('.')[0]).html" -Append
+    "                <td style=`"background-color:`#FFFFFF`">$($row.name)</td>" | Out-File -FilePath "$($yamlfile.Name.Split('.')[0]).html" -Append
 
     $red = [string]::Format("{0:X2}", $row.style.red)
     $green = [string]::Format("{0:X2}", $row.style.green)
@@ -50,14 +53,15 @@ foreach($row in $yaml.rows)
 
     foreach($entry in $row.entries)
     {
-        "                <td colspan=$($entry.attributes.colspan) style=`"background-color:`#$($backgroundcolor)`">$($entry.name)</td>"
+        "                <td colspan=$($entry.attributes.colspan) style=`"background-color:`#$($backgroundcolor)`">$($entry.name)</td>" | Out-File -FilePath "$($yamlfile.Name.Split('.')[0]).html" -Append
     }
 
-    "            </tr>"
+    "            </tr>" | Out-File -FilePath "$($yamlfile.Name.Split('.')[0]).html" -Append
 }
 
 @"
         </table>
     </body>
 </html>
-"@
+"@ | Out-File -FilePath "$($yamlfile.Name.Split('.')[0]).html" -Append
+}
