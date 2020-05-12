@@ -1,0 +1,63 @@
+$yaml = ConvertFrom-Yaml -Path C:\Users\analyst\Desktop\kerberoasting.yaml
+
+@"
+<html>
+    <body>
+        <head>
+            <style>
+                table {
+                    background-color: #000000
+                }
+
+                th {
+                    background-color: #DCDCDC
+                }
+
+                table,
+                th,
+                td {
+                    border: 3px solid black;
+                    border-collapse: collapse;
+                    font-weight: bold;
+                }
+
+                th,
+                td {
+                    padding: 15px;
+                    text-align: center;
+                }
+            </style>
+        </head>
+"@
+
+@"
+    <body>
+        <table style="width:100%">
+            <tr>
+                <th colspan="$($yaml.header.colspan)" id="th01">$($yaml.header.name)</th>
+            </tr>
+"@
+
+foreach($row in $yaml.rows)
+{
+    "            <tr>"
+    "                <td style=`"background-color:`#FFFFFF`">$($row.name)</td>"
+
+    $red = [string]::Format("{0:X2}", $row.style.red)
+    $green = [string]::Format("{0:X2}", $row.style.green)
+    $blue = [string]::Format("{0:X2}", $row.style.blue)
+    $backgroundcolor = "$($red)$($green)$($blue)"
+
+    foreach($entry in $row.entries)
+    {
+        "                <td colspan=$($entry.attributes.colspan) style=`"background-color:`#$($backgroundcolor)`">$($entry.name)</td>"
+    }
+
+    "            </tr>"
+}
+
+@"
+        </table>
+    </body>
+</html>
+"@
