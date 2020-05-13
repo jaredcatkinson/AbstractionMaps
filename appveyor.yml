@@ -77,6 +77,8 @@ build_script:
 
         $sb.ToString() | Out-File -FilePath ".\Maps\$($yamlfile.Name.Split('.')[0]).html"
     }
+    
+    Write-Host "$($env:access_token)"
 artifacts:
 - path: Maps\*.html
 on_success:
