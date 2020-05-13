@@ -68,6 +68,10 @@ build_script:
         [void]$sb.AppendLine('    </body>')
         [void]$sb.AppendLine('</html>')
 
+        if(-not (Test-Path .\maps))
+        {
+            mkdir .\Maps
+        }
         $sb.ToString() | Out-File -FilePath "$($yamlfile.Name.Split('.')[0]).html"
     }
     
