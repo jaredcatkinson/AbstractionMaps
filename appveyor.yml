@@ -85,5 +85,5 @@ on_success:
   - git config --global user.email "jared@invoke-ir.com"
   - git config --global user.name "jaredcatkinson"
   - git add Maps/
-  - git commit
-  - git push
+  - git commit -m "Appveyor adding generated html files"
+  - git push --force
