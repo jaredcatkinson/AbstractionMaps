@@ -72,7 +72,7 @@ build_script:
         {
             mkdir .\Maps
         }
-        $sb.ToString() | Out-File -FilePath "$($yamlfile.Name.Split('.')[0]).html"
+        $sb.ToString() | Out-File -FilePath "Maps\$($yamlfile.Name.Split('.')[0]).html"
     }
     
     Get-ChildItem
