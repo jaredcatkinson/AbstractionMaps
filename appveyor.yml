@@ -2,7 +2,7 @@ version: 1.0.{build}
 image: Visual Studio 2019
 environment:
   access_token:
-    secure: iyinVpe3GU+aCsgndz6b974Iz3jVbbyOzECHsaBTEziyXJXdum9nWxi63Cmcm2bQ
+    secure: XObFm6kvn4ywvuntr9WHP9Y8c9HgFpRafNvIpwr2LjKnH3xauP05OI8XC0F/fsK8
 install:
 - ps: Install-Module -Name FXPSYaml -Force
 build_script:
