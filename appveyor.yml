@@ -4,8 +4,6 @@ install:
 - ps: Install-Module -Name FXPSYaml -Force
 build_script:
 - ps: >-
-    Get-ChildItem
-    
     foreach ($yamlfile in (Get-ChildItem *.yaml))
     {
         $yaml = ConvertFrom-Yaml -Path $yamlfile.FullName
@@ -72,7 +70,7 @@ build_script:
         {
             mkdir .\Maps
         }
-        $sb.ToString() | Out-File -FilePath "Maps\$($yamlfile.Name.Split('.')[0]).html"
+        $sb.ToString() | Out-File -FilePath "Maps\$($yamlfile.Name.Split('.')[0]).html" -Force
     }
     
     Get-ChildItem
