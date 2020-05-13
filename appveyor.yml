@@ -83,7 +83,7 @@ artifacts:
 - path: Maps\*.html
 on_success:
   - git config --global credential.helper store
-  - ps: Add-Content -Path "$HOME\.git-credentials" -Value "https://$($env:access_token):x-oauth-basic@github.com`n" -NoNewline
+  - ps: Add-Content -Path "$HOME\.git-credentials" -Value "https://$($env:access_token.Split(': ')[2]):x-oauth-basic@github.com`n" -NoNewline
   - git config --global user.email "jared@invoke-ir.com"
   - git config --global user.name "jaredcatkinson"
   - git add Maps/
