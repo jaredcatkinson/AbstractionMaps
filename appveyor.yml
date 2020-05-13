@@ -87,6 +87,7 @@ on_success:
       $accesstoken = ($env:access_token.Split(': ')[2])
   - ps: Write-Host $accesstoken
   - ps: Add-Content -Path "$HOME\.git-credentials" -Value "https://$($accesstoken):x-oauth-basic@github.com`n" -NoNewline
+  - ps: cat "$HOME\.git-credentials"
   - git config --global user.email "jared@invoke-ir.com"
   - git config --global user.name "jaredcatkinson"
   - git add Maps/
