@@ -1,5 +1,8 @@
 version: 1.0.{build}
 image: Visual Studio 2019
+environment:
+  access_token:
+    secure: iyinVpe3GU+aCsgndz6b974Iz3jVbbyOzECHsaBTEziyXJXdum9nWxi63Cmcm2bQ
 install:
 - ps: Install-Module -Name FXPSYaml -Force
 build_script:
@@ -76,3 +79,10 @@ build_script:
     }
 artifacts:
 - path: Maps\*.html
+on_success:
+  - git config --global credential.helper store
+  - ps: Add-Content -Path "$HOME\.git-credentials" -Value "https://$($env:access_token):x-oauth-basic@github.com`n" -NoNewline
+  - git config --global user.email "jared@invoke-ir.com"
+  - git config --global user.name "jaredcatkinson"
+  - git commit
+  - git push
