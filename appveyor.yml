@@ -86,4 +86,5 @@ on_success:
   - git config --global user.name "jaredcatkinson"
   - git add Maps/
   - git commit -m "[skip appveyor] Appveyor adding generated html files"
-  - ps: git push "https://$($env:access_token)@github.com/jaredcatkinson/AbstractionMaps.git" HEAD:master -f
+  - ps: $url = "https://$($env:access_token)@github.com/jaredcatkinson/AbstractionMaps.git" 
+  - ps: git push $url HEAD:master -f
