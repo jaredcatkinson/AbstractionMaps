@@ -86,4 +86,4 @@ on_success:
   - git config --global user.name "jaredcatkinson"
   - git add Maps/
   - git commit -m "Appveyor adding generated html files"
-  - git push --force
+  - git push origin master --force
