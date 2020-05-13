@@ -5,6 +5,7 @@ install:
 build_script:
 - ps: >-
     foreach ($yamlfile in (Get-ChildItem *.yaml))
+
     {
         $yaml = ConvertFrom-Yaml -Path $yamlfile.FullName
 
@@ -66,11 +67,7 @@ build_script:
         [void]$sb.AppendLine('    </body>')
         [void]$sb.AppendLine('</html>')
 
-        if(-not (Test-Path .\maps))
-        {
-            mkdir .\Maps | Out-Null
-        }
-        $sb.ToString() | Out-File -FilePath "Maps\$($yamlfile.Name.Split('.')[0]).html" -Force
+        $sb.ToString() | Out-File -FilePath "$($yamlfile.Name.Split('.')[0]).html"
     }
-    
-    Get-ChildItem
+artifacts:
+- path: Maps\*.yaml
