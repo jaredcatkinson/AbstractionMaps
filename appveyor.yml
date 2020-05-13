@@ -82,7 +82,6 @@ artifacts:
 on_success:
   - git config --global credential.helper store
   - ps: Add-Content -Path "$HOME\.git-credentials" -Value "https://$($env:access_token):x-oauth-basic@github.com`n" -NoNewline
-  - ps: cat "$HOME\.git-credentials"
   - git config --global user.email "jared@invoke-ir.com"
   - git config --global user.name "jaredcatkinson"
   - git remote -v
