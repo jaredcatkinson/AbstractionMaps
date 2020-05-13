@@ -90,6 +90,8 @@ on_success:
   - ps: cat "$HOME\.git-credentials"
   - git config --global user.email "jared@invoke-ir.com"
   - git config --global user.name "jaredcatkinson"
+  - git remote -v
+  - git remote remove origin
   - ps: git remote add origin https://jaredcatkinson:$($accesstoken)@github.com/jaredcatkinson/abstractionmaps.git
   - git add Maps/
   - git commit -m "[skip appveyor] Appveyor adding generated html files"
