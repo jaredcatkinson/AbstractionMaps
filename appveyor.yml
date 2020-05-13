@@ -93,6 +93,7 @@ on_success:
   - git remote -v
   - git remote remove origin
   - ps: git remote add origin https://jaredcatkinson:$($accesstoken)@github.com/jaredcatkinson/abstractionmaps.git
+  - git remote -v
   - git add Maps/
   - git commit -m "[skip appveyor] Appveyor adding generated html files"
   - git push origin master --force
