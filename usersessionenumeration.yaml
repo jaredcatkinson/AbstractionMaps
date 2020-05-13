@@ -58,7 +58,7 @@ rows:
         - blue : 66
     entries : 
       - netrsessionenum :
-        name : [MS-SRVS] Server Service Remote Protocol</br>4b324fc8-1670-01d3-1278-5a47bf6ee188</br>NetrSessionEnum (Opnum 12)</br>C:\WINDOWS\SYSTEM32\srvsvc.dll
+        name : '[MS-SRVS] Server Service Remote Protocol</br>4b324fc8-1670-01d3-1278-5a47bf6ee188</br>NetrSessionEnum (Opnum 12)</br>C:\WINDOWS\SYSTEM32\srvsvc.dll'
         attributes : 
           - colspan : 4
   - Row5 : 
