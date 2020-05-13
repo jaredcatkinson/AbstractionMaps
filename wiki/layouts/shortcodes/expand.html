@@ -1,0 +1,31 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+<!-- Expanding box contents -->
+<div class="expand" style="box-sizing: content-box;border: solid #a9a9a9 1px; padding:0px 0px 0px 0px; border-radius:10px;">
+
+    <!-- Expanding box label -->
+    <div class="expand-label" 
+        style="cursor: pointer;font-weight: bold;color:rgb(232, 232, 232);background-color: #3b3a8a;border-radius:8px;padding:3px;" 
+        onclick="$h = $(this);$h.next('div').slideToggle(100,function () 
+            {$h.children('div').attr('class',function () 
+                {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-question-circle';});});">
+        <div
+            class="fas fa-question-circle"
+            style="background-color:#1e1d61;
+            border-radius: 10px;
+            padding:5px;
+            ">
+       </div>
+        
+        <span>
+        {{$expandMessage := T "Expand-title"}}
+    	{{ if .IsNamedParams }}
+    	{{.Get "default" | default $expandMessage}}
+    	{{else}}
+    	{{.Get 0 | default $expandMessage}}
+    	{{end}}
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        {{.Inner | safeHTML}}
+    </div>
+</div>
