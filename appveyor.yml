@@ -85,6 +85,7 @@ on_success:
   - git config --global credential.helper store
   - ps: |
       $accesstoken = ($env:access_token.Split(': ')[2])
+  - ps: Write-Host $accesstoken
   - ps: Add-Content -Path "$HOME\.git-credentials" -Value "https://$($accesstoken):x-oauth-basic@github.com`n" -NoNewline
   - git config --global user.email "jared@invoke-ir.com"
   - git config --global user.name "jaredcatkinson"
