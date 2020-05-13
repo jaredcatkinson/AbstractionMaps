@@ -69,5 +69,7 @@ build_script:
 
         $sb.ToString() | Out-File -FilePath "$($yamlfile.Name.Split('.')[0]).html"
     }
+    
+    Get-ChildItem .\Maps
 artifacts:
-- path: Maps\*.html
+- path: .\Maps\*.html
