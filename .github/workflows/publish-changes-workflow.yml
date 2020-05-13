@@ -1,14 +1,17 @@
 name: Build and Deploy
-on: [push]
+on:
+  push:
+    branches:
+      - yaml
 jobs:
   build:
     runs-on: windows-2019
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        uses: actions/checkout@v2
         with:
           persist-credentials: false
-      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+      - name: Install and Build 🔧
         run: |
           Install-Module -Name FXPSYaml -Force
           foreach ($yamlfile in (Get-ChildItem *.yaml))
@@ -67,30 +70,30 @@ jobs:
               [void]$sb.AppendLine('</html>')
               if(-not (Test-Path .\Maps))
               {
-                  mkdir .\Maps
+                  mkdir .\Maps | Out-Null
               }
               $sb.ToString() | Out-File -FilePath ".\Maps\$($yamlfile.Name.Split('.')[0]).html"
           }
-      - name: Upload Artifacts 🔺 # The project is then uploaded as an artifact named 'site'.
+      - name: Upload Artifacts 🔺
         uses: actions/upload-artifact@v1
         with:
-          name: site
-          path: maps
+          name: html
+          path: html
   deploy:
-    needs: [build] # The second job must depend on the first one to complete before running, and uses ubuntu-latest instead of windows.
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
         with:
           persist-credentials: false
-      - name: Download Artifacts 🔻 # The built project is downloaded into the 'site' folder.
+      - name: Download Artifacts 🔻
         uses: actions/download-artifact@v1
         with:
-          name: site
+          name: html
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: maps
-          FOLDER: "site" # The deployment folder should match the name of the artifact. Even though our project builds into the 'build' folder the artifact name of 'site' must be placed here.
+          BRANCH: html
+          FOLDER: "html" # The deployment folder should match the name of the artifact. Even though our project builds into the 'build' folder the artifact name of 'site' must be placed here.
