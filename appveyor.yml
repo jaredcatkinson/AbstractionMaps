@@ -68,7 +68,7 @@ build_script:
 
         if(-not (Test-Path .\maps))
         {
-            mkdir .\Maps
+            mkdir .\Maps | Out-Null
         }
         $sb.ToString() | Out-File -FilePath "Maps\$($yamlfile.Name.Split('.')[0]).html" -Force
     }
