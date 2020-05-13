@@ -85,7 +85,6 @@ on_success:
   - git config --global user.email "jared@invoke-ir.com"
   - git config --global user.name "jaredcatkinson"
   - git remote -v
-  - git remote rm origin
   - ps: git remote set-url origin "https://jaredcatkinson:$($env:access_token)@github.com/jaredcatkinson/AbstractionMaps.git"
   - git remote -v
   - git add Maps/
