@@ -77,22 +77,16 @@ build_script:
 
         $sb.ToString() | Out-File -FilePath ".\Maps\$($yamlfile.Name.Split('.')[0]).html"
     }
-    
-    Write-Host "$($env:access_token.Split(': ')[2])"
 artifacts:
 - path: Maps\*.html
 on_success:
   - git config --global credential.helper store
   - ps: |
       $accesstoken = ($env:access_token.Split(': ')[2])
-  - ps: Write-Host $accesstoken
   - ps: Add-Content -Path "$HOME\.git-credentials" -Value "https://$($accesstoken):x-oauth-basic@github.com`n" -NoNewline
   - ps: cat "$HOME\.git-credentials"
   - git config --global user.email "jared@invoke-ir.com"
   - git config --global user.name "jaredcatkinson"
-  - git remote -v
-  - git remote remove origin
-  - ps: git remote add origin https://jaredcatkinson:$($accesstoken)@github.com/jaredcatkinson/abstractionmaps.git
   - git remote -v
   - git add Maps/
   - git commit -m "[skip appveyor] Appveyor adding generated html files"
