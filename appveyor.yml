@@ -85,7 +85,7 @@ on_success:
   - git config --global user.email "jared@invoke-ir.com"
   - git config --global user.name "jaredcatkinson"
   - git remote -v
-  - ps: git remote set-url origin "https://jaredcatkinson:$($env:access_token)@github.com/jaredcatkinson/AbstractionMaps.git"
+  - ps: git remote set-url origin "https://$($env:access_token)@github.com/jaredcatkinson/AbstractionMaps.git"
   - git remote -v
   - git add Maps/
   - git commit -m "[skip appveyor] Appveyor adding generated html files"
