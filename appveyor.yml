@@ -67,9 +67,12 @@ build_script:
         [void]$sb.AppendLine('    </body>')
         [void]$sb.AppendLine('</html>')
 
-        $sb.ToString() | Out-File -FilePath "$($yamlfile.Name.Split('.')[0]).html"
+        if(-not (Test-Path .\Maps))
+        {
+            mkdir .\Maps
+        }
+
+        $sb.ToString() | Out-File -FilePath ".\Maps\$($yamlfile.Name.Split('.')[0]).html"
     }
-    
-    Get-ChildItem
 artifacts:
-- path: .\Maps\*.html
+- path: Maps\*.html
