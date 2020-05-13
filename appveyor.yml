@@ -1,7 +1,8 @@
 version: 1.0.{build}
 image: Visual Studio 2019
 environment:
-  access_token: XObFm6kvn4ywvuntr9WHP9Y8c9HgFpRafNvIpwr2LjKnH3xauP05OI8XC0F/fsK8
+  access_token: 
+    secure: XObFm6kvn4ywvuntr9WHP9Y8c9HgFpRafNvIpwr2LjKnH3xauP05OI8XC0F/fsK8
 install:
 - ps: Install-Module -Name FXPSYaml -Force
 build_script:
@@ -77,12 +78,12 @@ build_script:
         $sb.ToString() | Out-File -FilePath ".\Maps\$($yamlfile.Name.Split('.')[0]).html"
     }
     
-    Write-Host "$($env:access_token)"
+    Write-Host "$($env:access_token).Split(': ')[1]"
 artifacts:
 - path: Maps\*.html
 on_success:
   - git config --global credential.helper store
-  - ps: Add-Content -Path "$HOME\.git-credentials" -Value "https://$($env:access_token):x-oauth-basic@github.com`n" -NoNewline
+  - ps: Add-Content -Path "$HOME\.git-credentials" -Value "https://$($env:access_token).Split(': ')[1]:x-oauth-basic@github.com`n" -NoNewline
   - git config --global user.email "jared@invoke-ir.com"
   - git config --global user.name "jaredcatkinson"
   - git add Maps/
