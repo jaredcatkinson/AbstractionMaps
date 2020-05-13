@@ -84,9 +84,6 @@ on_success:
   - ps: Add-Content -Path "$HOME\.git-credentials" -Value "https://$($env:access_token):x-oauth-basic@github.com`n" -NoNewline
   - git config --global user.email "jared@invoke-ir.com"
   - git config --global user.name "jaredcatkinson"
-  - git remote -v
-  - ps: git remote set-url origin "https://$($env:access_token)@github.com/jaredcatkinson/AbstractionMaps.git"
-  - git remote -v
   - git add Maps/
   - git commit -m "[skip appveyor] Appveyor adding generated html files"
-  - git push origin master --force
+  - ps: git push https://$($env:access_token)@github.com/jaredcatkinson/AbstractionMaps.git -f
