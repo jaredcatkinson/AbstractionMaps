@@ -145,6 +145,11 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: site
+      - name: Delete branch
+        uses: dawidd6/action-delete-branch@v3
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          branches: test
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
