@@ -159,8 +159,10 @@ jobs:
           [void]$sb.AppendLine('          prerelease: false')
           
           mkdir public/.github | Out-Null
-          mkdir public/.github/workflows
-          $sb.ToString() | Out-File public/.github/workflows/create-release.yaml
+          mkdir public/.github/workflows | Out-Null
+          $sb.ToString() | Out-File ./public/.github/workflows/create-release.yaml
+          Get-ChildItem ./
+          Get-ChildItem ./public
       - name: Upload Artifacts 🔺
         uses: actions/upload-artifact@v1
         with:
