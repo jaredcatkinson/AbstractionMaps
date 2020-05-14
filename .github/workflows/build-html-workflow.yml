@@ -128,31 +128,7 @@ jobs:
             $newPath = $newPath -replace "content", "public"
             (Get-Content -Path $newPath -Raw) -replace 'MAP GOES HERE',$content | Out-File -FilePath $newPath
           }
-      - name: Upload Artifacts 🔺
-        uses: actions/upload-artifact@v1
-        with:
-          name: site
-          path: site/public
-  deploy:
-    needs: [buildsite]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-      - name: Download Artifacts 🔻
-        uses: actions/download-artifact@v1
-        with:
-          name: site
-      - name: Delete branch
-        uses: dawidd6/action-delete-branch@v3
-        with:
-          github_token: ${{ secrets.ACCESS_TOKEN }}
-          branches: test
           
-      - name: Add Test Branch Workflow
-        run: | 
           $sb = [System.Text.StringBuilder]::new()
           [void]$sb.AppendLine('on:')
           [void]$sb.AppendLine('  push:')
@@ -182,9 +158,31 @@ jobs:
           [void]$sb.AppendLine('          draft: false')
           [void]$sb.AppendLine('          prerelease: false')
           
-          mkdir site/.github | Out-Null
-          mkdir site/.github/workflows | Out-Null
-          $sb.ToString() | Out-File site/.github/workflows/create-release.yaml
+          mkdir public/.github | Out-Null
+          mkdir public/.github/workflows | Out-Null
+          $sb.ToString() | Out-File public/.github/workflows/create-release.yaml
+      - name: Upload Artifacts 🔺
+        uses: actions/upload-artifact@v1
+        with:
+          name: site
+          path: site/public
+  deploy:
+    needs: [buildsite]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Download Artifacts 🔻
+        uses: actions/download-artifact@v1
+        with:
+          name: site
+      - name: Delete branch
+        uses: dawidd6/action-delete-branch@v3
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          branches: test
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
