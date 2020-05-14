@@ -183,7 +183,7 @@ jobs:
           mkdir site/.github
           mkdir site/.github/workflows
           cp site/create-release.yaml site/.github/workflows/create-release.yaml
-          ls site
+          ls -al site
       - name: Delete branch
         uses: dawidd6/action-delete-branch@v3
         with:
