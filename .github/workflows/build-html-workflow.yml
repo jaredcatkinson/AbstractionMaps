@@ -180,6 +180,7 @@ jobs:
           name: site
       - name: Move Github Action File
         run: | 
+          ls
           mkdir site/.github
           mkdir site/.github/workflows
           cp site/create-release.yaml site/.github/workflows/create-release.yaml
