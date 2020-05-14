@@ -1,0 +1,153 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - master
+jobs:
+  buildhtml:
+    runs-on: windows-2019
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Install PSYaml and Build HTML Files 🔧
+        run: |
+          Install-Module -Name FXPSYaml -Force
+          
+          mkdir html | Out-Null
+          
+          foreach ($yamlfile in (Get-ChildItem *.yaml))
+          {
+              $yaml = ConvertFrom-Yaml -Path $yamlfile.FullName
+              
+              mkdir "html\$($yaml.technique)"
+              
+              $sb = [System.Text.StringBuilder]::new()
+              [void]$sb.AppendLine('<html>')
+              [void]$sb.AppendLine('    <head>')
+              [void]$sb.AppendLine('        <style>')
+              [void]$sb.AppendLine('            table {')
+              [void]$sb.AppendLine('                width: 60%;')
+              [void]$sb.AppendLine('                margin: 0 auto;')
+              [void]$sb.AppendLine('                background-color: #000000;')
+              [void]$sb.AppendLine('            }')
+              [void]$sb.AppendLine('')
+              [void]$sb.AppendLine('            th {')
+              [void]$sb.AppendLine('                background-color: #DCDCDC;')
+              [void]$sb.AppendLine('            }')
+              [void]$sb.AppendLine('')
+              [void]$sb.AppendLine('            table,')
+              [void]$sb.AppendLine('            th,')
+              [void]$sb.AppendLine('            td {')
+              [void]$sb.AppendLine('                border: 3px solid black;')
+              [void]$sb.AppendLine('                border-collapse: collapse;')
+              [void]$sb.AppendLine('                font-weight: bold;')
+              [void]$sb.AppendLine('            }')
+              [void]$sb.AppendLine('')
+              [void]$sb.AppendLine('            th,')
+              [void]$sb.AppendLine('            td {')
+              [void]$sb.AppendLine('                padding: 15px;')
+              [void]$sb.AppendLine('                text-align: center;')
+              [void]$sb.AppendLine('            }')
+              [void]$sb.AppendLine('        </style>')
+              [void]$sb.AppendLine('     </head>')
+              [void]$sb.AppendLine('     <body>')
+              [void]$sb.AppendLine('         <table>')
+              [void]$sb.AppendLine('             <tr>')
+              [void]$sb.AppendLine("                 <th colspan=`"$($yaml.header.colspan)`" id=`"th01`">$($yaml.header.name)</th>")
+              [void]$sb.AppendLine('             </tr>')
+              foreach($row in $yaml.rows)
+              {
+                  [void]$sb.AppendLine('            <tr>')
+                  [void]$sb.AppendLine("                <td style=`"background-color: #FFFFFF`">$($row.name)</td>")
+                  $red = [string]::Format("{0:X2}", $row.style.red)
+                  $green = [string]::Format("{0:X2}", $row.style.green)
+                  $blue = [string]::Format("{0:X2}", $row.style.blue)
+                  $backgroundcolor = "$($red)$($green)$($blue)"
+                  foreach($entry in $row.entries)
+                  {
+                      [void]$sb.AppendLine("                <td colspan=$($entry.attributes.colspan) style=`"background-color: #$($backgroundcolor)`">$($entry.name)</td>")
+                  }
+                  [void]$sb.AppendLine('            </tr>')
+              }
+              [void]$sb.AppendLine('        </table>')
+              [void]$sb.AppendLine('    </body>')
+              [void]$sb.AppendLine('</html>')
+              $sb.ToString() | Out-File -FilePath ".\html\$($yaml.technique)\map.html"
+              
+              $sbmd = [System.Text.StringBuilder]::new()
+              [void]$sbmd.AppendLine("+++")
+              [void]$sbmd.AppendLine("title = `"$($yaml.title)`"")
+              [void]$sbmd.AppendLine("menuTitle = `"$($yaml.title)`"")
+              [void]$sbmd.AppendLine("chapter = false")
+              [void]$sbmd.AppendLine("weight = $($yaml.technique.Split('T')[1])")
+              [void]$sbmd.AppendLine("pre = `"<i class='fas fa-map'></i> `"")
+              [void]$sbmd.AppendLine("+++")
+              [void]$sbmd.AppendLine("")
+              [void]$sbmd.AppendLine("MAP GOES HERE")
+              $sbmd.ToString() | Out-File -FilePath ".\html\$($yaml.technique)\index.md"
+          }
+          
+          gci html -recurse
+      - name: Upload Artifacts 🔺
+        uses: actions/upload-artifact@v1
+        with:
+          name: html
+          path: html
+  buildsite:
+    needs: [buildhtml]
+    runs-on: windows-2019
+    steps:
+      - name: Download Artifacts 🔻
+        uses: actions/download-artifact@v1
+        with:
+          name: html
+      - name: Checkout site branch 🛎️
+        uses: actions/checkout@v2
+        with:
+          ref: site
+          path: site
+          persist-credentials: false
+      - name: Add HTML Files to Site 🔧
+        run: |
+          foreach($directory in (Get-ChildItem html -Directory))
+          {
+            Copy-Item $directory.FullName ".\site\content\maps\$($directory.Name)" -Recurse
+          }
+          Get-ChildItem .\site\content\maps -Recurse
+      - name: Build with Hugo
+        run: | 
+          cd site
+          .\bin\hugo\hugo_0.59.1_Windows-64bit\hugo.exe
+          foreach($file in (Get-ChildItem ".\content\maps" -Recurse -Filter map.html))
+          {
+            $path = Split-Path -Path $file.FullName
+            $content = Get-Content $file.FullName
+            $newPath = $path + "\index.html"
+            $newPath = $newPath -replace "content", "public"
+            (Get-Content -Path $newPath -Raw) -replace 'MAP GOES HERE',$content | Out-File -FilePath $newPath
+          }
+      - name: Upload Artifacts 🔺
+        uses: actions/upload-artifact@v1
+        with:
+          name: site
+          path: site/public
+  deploy:
+    needs: [buildsite]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Download Artifacts 🔻
+        uses: actions/download-artifact@v1
+        with:
+          name: site
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: test
+          FOLDER: "site"
