@@ -2,7 +2,7 @@
 title = "T1050 - User Session Enumeration"
 menuTitle = "T1050 - User Session Enumeration"
 chapter = false
-weight = T1050
+weight = 1050
 pre = "<i class='fas fa-map'></i> "
 +++
 

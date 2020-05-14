@@ -11,18 +11,18 @@
 	"title": "Maps",
 	"tags": [],
 	"description": "",
-	"content": "  T1050 - New Service   T1208 Kerberoasting   "
+	"content": "\r\rT1050 - User Session Enumeration\r\r\rT1208 - Kerberoasting\r\r\r"
 },
 {
 	"uri": "/maps/t1050/",
-	"title": "T1050 - New Service",
+	"title": "T1050 - User Session Enumeration",
 	"tags": [],
 	"description": "",
-	"content": ""
+	"content": "MAP GOES HERE\n"
 },
 {
 	"uri": "/maps/t1208/",
-	"title": "T1208 Kerberoasting",
+	"title": "T1208 - Kerberoasting",
 	"tags": [],
 	"description": "",
 	"content": "MAP GOES HERE\n"

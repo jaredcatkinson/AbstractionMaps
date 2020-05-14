@@ -11,16 +11,16 @@
     
     
     <item>
-      <title>T1050 - New Service</title>
+      <title>T1050 - User Session Enumeration</title>
       <link>/maps/t1050/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/maps/t1050/</guid>
-      <description></description>
+      <description>MAP GOES HERE</description>
     </item>
     
     <item>
-      <title>T1208 Kerberoasting</title>
+      <title>T1208 - Kerberoasting</title>
       <link>/maps/t1208/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
