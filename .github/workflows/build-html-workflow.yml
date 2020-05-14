@@ -159,7 +159,7 @@ jobs:
           [void]$sb.AppendLine('          prerelease: false')
           
           mkdir public/.github | Out-Null
-          mkdir public/.github/workflows | Out-Null
+          mkdir public/.github/workflows
           $sb.ToString() | Out-File public/.github/workflows/create-release.yaml
       - name: Upload Artifacts 🔺
         uses: actions/upload-artifact@v1
