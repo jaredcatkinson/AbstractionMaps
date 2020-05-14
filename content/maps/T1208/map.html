@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <style>
+            table {
+                width: 60%;
+                margin: 0 auto;
+                background-color: #000000;
+            }
+
+            th {
+                background-color: #DCDCDC;
+            }
+
+            table,
+            th,
+            td {
+                border: 3px solid black;
+                border-collapse: collapse;
+                font-weight: bold;
+            }
+
+            th,
+            td {
+                padding: 15px;
+                text-align: center;
+            }
+        </style>
+     </head>
+     <body>
+         <table>
+             <tr>
+                 <th colspan="5" id="th01">T1208 - Kerberoasting</th>
+             </tr>
+            <tr>
+                <td style="background-color: #FFFFFF">Tools</td>
+                <td colspan=1 style="background-color: #E69F00">PowerShell Invoke-Kerberoast</td>
+                <td colspan=1 style="background-color: #E69F00">Rubeus kerberoast</td>
+                <td colspan=1 style="background-color: #E69F00">mimikatz kerberos::ask</td>
+                <td colspan=1 style="background-color: #E69F00">Rubeus asktgs</td>
+            </tr>
+            <tr>
+                <td style="background-color: #FFFFFF">Managed Code</td>
+                <td colspan=2 style="background-color: #56B4E9">.NET KerberosRequestorSecurityToken</td>
+            </tr>
+            <tr>
+                <td style="background-color: #FFFFFF">Windows API Functions</td>
+                <td colspan=2 style="background-color: #009E73">InitializeSecurityContext</td>
+                <td colspan=1 style="background-color: #009E73">LsaCallAuthenticationPackage</td>
+            </tr>
+            <tr>
+                <td style="background-color: #FFFFFF">Remote Procedure Call</td>
+                <td colspan=3 style="background-color: #F0E442">4f32adc8-6052-4a04-8701-293ccf2096f0 </br> C:\Windows\system32\Sspisrv.dll</td>
+            </tr>
+            <tr>
+                <td style="background-color: #FFFFFF">Network Protocol</td>
+                <td colspan=4 style="background-color: #D55E00">Kerberos TGS-REQ/REP</td>
+            </tr>
+        </table>
+    </body>
+</html>
+
