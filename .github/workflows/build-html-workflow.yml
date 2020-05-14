@@ -158,9 +158,7 @@ jobs:
           [void]$sb.AppendLine('          draft: false')
           [void]$sb.AppendLine('          prerelease: false')
           
-          mkdir public/.github | Out-Null
-          mkdir public/.github/workflows | Out-Null
-          $sb.ToString() | Out-File ./public/.github/workflows/create-release.yaml
+          $sb.ToString() | Out-File ./public/create-release.yaml
           Get-ChildItem ./
           Get-ChildItem ./public
       - name: Upload Artifacts 🔺
@@ -180,6 +178,11 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: site
+      - name: Move Github Action File
+        run: | 
+          mkdir site/.github
+          mkdir site/.github/workflows
+          cp site/create-release.yaml site/.github/workflows/create-release.yaml
       - name: Delete branch
         uses: dawidd6/action-delete-branch@v3
         with:
