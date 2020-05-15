@@ -89,6 +89,112 @@ jobs:
               $sbmd.ToString() | Out-File -FilePath ".\html\$($yaml.technique)\index.md"
           }
           
+          $initialaccess = New-Object Collections.Generic.List[string]
+          $execution = New-Object Collections.Generic.List[string]
+          $persistence = New-Object Collections.Generic.List[string]
+          $privilegeescalation = New-Object Collections.Generic.List[string]
+          $defenseevasion = New-Object Collections.Generic.List[string]
+          $credentialaccess = New-Object Collections.Generic.List[string]
+          $discovery = New-Object Collections.Generic.List[string]
+          $lateralmovement = New-Object Collections.Generic.List[string]
+          $collection = New-Object Collections.Generic.List[string]
+          $commandandcontrol = New-Object Collections.Generic.List[string]
+          $exfiltration = New-Object Collections.Generic.List[string]
+          $impact = New-Object Collections.Generic.List[string]
+
+          foreach ($yamlfile in (Get-ChildItem *.yaml))
+          {
+              $yaml = ConvertFrom-Yaml -Path $yamlfile.FullName
+
+              foreach($tactic in ($yaml.tactic))
+              {
+                  switch($tactic)
+                  {
+                      TA0001 {$initialaccess.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
+                      TA0002 {$execution.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
+                      TA0003 {$persistence.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
+                      TA0004 {$privilegeescalation.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
+                      TA0005 {$defenseevasion.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
+                      TA0006 {$credentialaccess.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
+                      TA0007 {$discovery.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
+                      TA0008 {$lateralmovement.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
+                      TA0009 {$collection.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
+                      TA0010 {$exfiltration.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
+                      TA0011 {$commandandcontrol.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
+                      TA0040 {$impact.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
+                      default {}
+                  }
+              }
+          }
+
+          $length = 0
+          if($initialaccess.Count -gt $length)
+          {
+              $length = $initialaccess.Count
+          }
+          if($execution.Count -gt $length)
+          {
+              $length = $execution.Count
+          }
+          if($persitence.Count -gt $length)
+          {
+              $length = $persistence.Count
+          }
+          if($privilegeescaltion.Count -gt $length)
+          {
+              $length = $privilegeescalation.Count
+          }
+          if($defenseevasion.Count -gt $length)
+          {
+              $length = $defenseevasion.Count
+          }
+          if($credentialaccess.Count -gt $length)
+          {
+              $length = $credentialaccess.Count
+          }
+          if($discovery.Count -gt $length)
+          {
+              $length = $discovery.Count
+          }
+          if($lateralmovement.Count -gt $length)
+          {
+              $length = $lateralmovement.Count
+          }
+          if($collection.Count -gt $length)
+          {
+              $length = $collection.Count
+          }
+          if($exfiltration.Count -gt $length)
+          {
+              $length = $exfiltration.Count
+          }
+          if($commandandcontrol.Count -gt $length)
+          {
+              $length = $commandandcontrol.Count
+          }
+          if($impact.Count -gt $length)
+          {
+              $length = $impact.Count
+          }
+
+          $sb = [System.Text.StringBuilder]::new()
+          [void]$sb.AppendLine('![](/images/logo.png?pc=20)')
+          [void]$sb.AppendLine('---')
+          [void]$sb.AppendLine('## ATT&CK MATRIX')
+          [void]$sb.AppendLine('')
+          [void]$sb.AppendLine('| Initial Access | Execution | Persistence | Privilege Escalation | Defense Evasion | Credential Access | Discovery | Lateral Movement | Collection | Command and Control | Exfiltration | Impact |')
+          [void]$sb.AppendLine('|----------------|-----------|-------------|----------------------|-----------------|-------------------|-----------|------------------|------------|---------------------|--------------|--------|')
+
+          for($i=0; $i -lt $length; $i++)
+          {
+              $line = [System.Text.StringBuilder]::new()
+
+              [void]$line.Append("|$($initialaccess[$($i)])|$($execution[$($i)])|$($persistence[$($i)])|$($privilegeescalation[$($i)])|$($defenseevasion[$($i)])|$($credentialaccess[$($i)])|$($discovery[$($i)])|$($lateralmovement[$($i)])|$($collection[$($i)])|$($commandandcontrol[$($i)])|$($exfiltration[$($i)])|$($impact[$($i)])")
+              [void]$sb.AppendLine($line.ToString())
+          }
+
+          $sb.ToString() | Out-File -FilePath ".\html\_index.md"
+          
           gci html -recurse
       - name: Upload Artifacts 🔺
         uses: actions/upload-artifact@v1
@@ -115,6 +221,9 @@ jobs:
           {
             Copy-Item $directory.FullName ".\site\content\maps\$($directory.Name)" -Recurse
           }
+          
+          Copy-Item .\html\_index.md .\site\content\_index.md
+          
           Get-ChildItem .\site\content\maps -Recurse
       - name: Build with Hugo
         run: | 
