@@ -155,10 +155,10 @@ jobs:
         uses: dawidd6/action-delete-branch@v3
         with:
           github_token: ${{ secrets.ACCESS_TOKEN }}
-          branches: test
+          branches: prod
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: test
+          BRANCH: prod
           FOLDER: "site"
