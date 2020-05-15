@@ -118,16 +118,22 @@ jobs:
           Get-ChildItem .\site\content\maps -Recurse
       - name: Build with Hugo
         run: | 
+          Write-Host "run"
           cd site
+          Write-Host "cd site"
           .\bin\hugo\hugo_0.59.1_Windows-64bit\hugo.exe
+          Write-Host "run hugo"
           foreach($file in (Get-ChildItem ".\content\maps" -Recurse -Filter map.html))
           {
+            Write-Host "$file.FullName"
             $path = Split-Path -Path $file.FullName
             $content = Get-Content $file.FullName
             $newPath = $path + "\index.html"
             $newPath = $newPath -replace "content", "public"
             (Get-Content -Path $newPath -Raw) -replace 'MAP GOES HERE',$content | Out-File -FilePath $newPath
+            Write-Host "$($file.FullName) done"
           }
+          Write-Host "loop done"
       - name: Upload Artifacts 🔺
         uses: actions/upload-artifact@v1
         with:
