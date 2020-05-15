@@ -110,18 +110,18 @@ jobs:
               {
                   switch($tactic)
                   {
-                      TA0001 {$initialaccess.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
-                      TA0002 {$execution.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
-                      TA0003 {$persistence.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
-                      TA0004 {$privilegeescalation.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
-                      TA0005 {$defenseevasion.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
-                      TA0006 {$credentialaccess.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
-                      TA0007 {$discovery.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
-                      TA0008 {$lateralmovement.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
-                      TA0009 {$collection.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
-                      TA0010 {$exfiltration.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
-                      TA0011 {$commandandcontrol.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
-                      TA0040 {$impact.Add("[$($yaml.techniquename)](maps/$($yaml.technique))")}
+                      TA0001 {$initialaccess.Add("[$($yaml.techniquename)](maps/$($yaml.technique.ToLower()))")}
+                      TA0002 {$execution.Add("[$($yaml.techniquename)](maps/$($yaml.technique.ToLower()))")}
+                      TA0003 {$persistence.Add("[$($yaml.techniquename)](maps/$($yaml.technique.ToLower()))")}
+                      TA0004 {$privilegeescalation.Add("[$($yaml.techniquename)](maps/$($yaml.technique.ToLower()))")}
+                      TA0005 {$defenseevasion.Add("[$($yaml.techniquename)](maps/$($yaml.technique.ToLower()))")}
+                      TA0006 {$credentialaccess.Add("[$($yaml.techniquename)](maps/$($yaml.technique.ToLower()))")}
+                      TA0007 {$discovery.Add("[$($yaml.techniquename)](maps/$($yaml.technique.ToLower()))")}
+                      TA0008 {$lateralmovement.Add("[$($yaml.techniquename)](maps/$($yaml.technique.ToLower()))")}
+                      TA0009 {$collection.Add("[$($yaml.techniquename)](maps/$($yaml.technique.ToLower()))")}
+                      TA0010 {$exfiltration.Add("[$($yaml.techniquename)](maps/$($yaml.technique.ToLower()))")}
+                      TA0011 {$commandandcontrol.Add("[$($yaml.techniquename)](maps/$($yaml.technique.ToLower()))")}
+                      TA0040 {$impact.Add("[$($yaml.techniquename)](maps/$($yaml.technique.ToLower()))")}
                       default {}
                   }
               }
