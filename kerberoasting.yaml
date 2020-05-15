@@ -1,6 +1,9 @@
 ---
 title: T1208 - Kerberoasting
+tactic:
+  - TA0006
 technique: T1208
+techniquename: Kerberoasting
 description:
 header : 
  name : T1208 - Kerberoasting
