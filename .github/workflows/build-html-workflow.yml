@@ -128,39 +128,6 @@ jobs:
             $newPath = $newPath -replace "content", "public"
             (Get-Content -Path $newPath -Raw) -replace 'MAP GOES HERE',$content | Out-File -FilePath $newPath
           }
-          
-          $sb = [System.Text.StringBuilder]::new()
-          [void]$sb.AppendLine('on:')
-          [void]$sb.AppendLine('  push:')
-          [void]$sb.AppendLine('    branches:')
-          [void]$sb.AppendLine('      - test')
-          [void]$sb.AppendLine('')
-          [void]$sb.AppendLine('name: Create Release')
-          [void]$sb.AppendLine('jobs:')
-          [void]$sb.AppendLine('  build:')
-          [void]$sb.AppendLine('    name: Create Release')
-          [void]$sb.AppendLine('    runs-on: ubuntu-latest')
-          [void]$sb.AppendLine('    steps:')
-          [void]$sb.AppendLine('      - name: Checkout code')
-          [void]$sb.AppendLine('        uses: actions/checkout@v2')
-          [void]$sb.AppendLine('      - name: Create Release')
-          [void]$sb.AppendLine('        id: create_release')
-          [void]$sb.AppendLine('        uses: actions/create-release@v1')
-          [void]$sb.AppendLine('        env:')
-          [void]$sb.AppendLine('          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}')
-          [void]$sb.AppendLine('        with:')
-          [void]$sb.AppendLine('          tag_name: ${{ github.ref }}')
-          [void]$sb.AppendLine('          release_name: Release ${{ github.ref }}')
-          [void]$sb.AppendLine('          body: |')
-          [void]$sb.AppendLine('            Changes in this Release')
-          [void]$sb.AppendLine('            - First Change')
-          [void]$sb.AppendLine('            - Second Change')
-          [void]$sb.AppendLine('          draft: false')
-          [void]$sb.AppendLine('          prerelease: false')
-          
-          $sb.ToString() | Out-File ./public/create-release.yaml
-          Get-ChildItem ./
-          Get-ChildItem ./public
       - name: Upload Artifacts 🔺
         uses: actions/upload-artifact@v1
         with:
