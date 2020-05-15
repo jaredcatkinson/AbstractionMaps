@@ -178,13 +178,6 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: site
-      - name: Move Github Action File
-        run: | 
-          mkdir site/.github
-          mkdir site/.github/workflows
-          cp site/create-release.yaml site/.github/workflows/create-release.yaml
-          ls -al site
-          ls -al site/.github/workflows/
       - name: Delete branch
         uses: dawidd6/action-delete-branch@v3
         with:
