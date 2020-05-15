@@ -1,6 +1,8 @@
 ---
 title: T1033 - User Session Enumeration
+tactic: TA0007
 technique: T1033
+techniquename: System Owner/User Discovery
 description: 
 header : 
  name : T1033 - User Session Enumeration
