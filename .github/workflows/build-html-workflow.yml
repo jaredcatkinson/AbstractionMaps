@@ -125,7 +125,7 @@ jobs:
           Write-Host "run hugo"
           foreach($file in (Get-ChildItem ".\content\maps" -Recurse -Filter map.html))
           {
-            Write-Host "$file.FullName"
+            Write-Host "$($file.FullName) start"
             $path = Split-Path -Path $file.FullName
             $content = Get-Content $file.FullName
             $newPath = $path + "\index.html"
