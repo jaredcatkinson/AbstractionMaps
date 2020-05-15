@@ -1,0 +1,43 @@
+[
+{
+	"uri": "//localhost:1313/maps/",
+	"title": "Maps",
+	"tags": [],
+	"description": "",
+	"content": "\r\rT1050 - User Session Enumeration\r\r\rT1208 - Kerberoasting\r\r\r"
+},
+{
+	"uri": "//localhost:1313/maps/t1050/",
+	"title": "T1050 - User Session Enumeration",
+	"tags": [],
+	"description": "",
+	"content": "MAP GOES HERE\n"
+},
+{
+	"uri": "//localhost:1313/maps/t1208/",
+	"title": "T1208 - Kerberoasting",
+	"tags": [],
+	"description": "",
+	"content": "MAP GOES HERE\n"
+},
+{
+	"uri": "//localhost:1313/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": "  ATT\u0026amp;CK MATRIX    Initial Access Execution Persistence Privilege Escalation Defense Evasion Credential Access Discovery Lateral Movement Collection Command and Control Exfiltration Impact       New Service New Service  Kerberoasting                                      "
+},
+{
+	"uri": "//localhost:1313/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

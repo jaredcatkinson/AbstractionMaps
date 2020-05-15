@@ -20,7 +20,7 @@ home = [ "HTML", "RSS", "JSON"]
   # Author of the site, will be used in meta information
   author = "SpecterOps"
   # Description of the site, will be used in meta information
-  description = "AT:D Course Wiki"
+  description = "Abstraction Maps"
   # Shows a checkmark for visited pages on the menu
   showVisitedLinks = true
   # Disable search function. It will hide search bar
@@ -61,11 +61,6 @@ name = "<i class='fas fa-ghost'></i> Specterops"
 identifier = "ds"
 url = "https://specterops.io"
 weight = 10
-
-[[menu.shortcuts]]
-name = "<i class='fas fa-question-circle'></i> About"
-url = "/about"
-weight = 20
 
 [Shortcuts-Title]
 other = "XXXXX"
