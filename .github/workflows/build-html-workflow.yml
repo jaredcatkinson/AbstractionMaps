@@ -230,7 +230,7 @@ jobs:
           Write-Host "run"
           cd site
           Write-Host "cd site"
-          .\bin\hugo\hugo_0.59.1_Windows-64bit\hugo.exe
+          .\bin\hugo\hugo_0.59.1_Windows-64bit\hugo.exe -l "/AbstractionMaps"
           Write-Host "run hugo"
           foreach($file in (Get-ChildItem ".\content\maps" -Recurse -Filter map.html))
           {
