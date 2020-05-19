@@ -53,7 +53,7 @@ resampleFilter = "box"
 # Menu Shortcuts - Displayed on the left
 [[menu.shortcuts]]
 name = "<i class='fas fa-home'></i> Home"
-url = "/AbstractionMaps/"
+url = "/AbstractionMaps"
 weight = 5
 
 [[menu.shortcuts]] 
