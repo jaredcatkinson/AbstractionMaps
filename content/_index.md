@@ -1,4 +1,4 @@
-![](/images/logo.png?pc=20)
+![](images/logo.png?pc=20)
 ---
 ## ATT&CK MATRIX
 
