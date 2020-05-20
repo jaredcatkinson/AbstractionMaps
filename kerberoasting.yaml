@@ -6,32 +6,32 @@ technique: T1208
 techniquename: Kerberoasting
 description:
 header:
- name: T1208 - Kerberoasting
- colspan: 5
+  name: T1208 - Kerberoasting
+  colspan: 5
 rows:
- - Row1:
-    name: Tools
-    style:
-     - red: 230
-     - green: 159
-     - blue: 0
-    entries:
-     - invoke-kerberoast:
-        name: PowerShell Invoke-Kerberoast
-        attributes:
-         - colspan: 1
-     - rubeuskerberoast:
-        name: Rubeus kerberoast
-        attributes:
-         - colspan: 1
-     - mimikatzkerberosask:
-        name: mimikatz kerberos::ask
-        attributes:
-         - colspan: 1
-     - rubeusasktgs:
-        name: Rubeus asktgs
-        attributes:
-         - colspan: 1
+  - Row1:
+     name: Tools
+     style:
+      - red: 230
+      - green: 159
+      - blue: 0
+     entries:
+      - invoke-kerberoast:
+         name: PowerShell Invoke-Kerberoast
+         attributes:
+          - colspan: 1
+      - rubeuskerberoast:
+         name: Rubeus kerberoast
+         attributes:
+          - colspan: 1
+      - mimikatzkerberosask:
+         name: mimikatz kerberos::ask
+         attributes:
+          - colspan: 1
+      - rubeusasktgs:
+         name: Rubeus asktgs
+         attributes:
+          - colspan: 1
  - Row2:
     name: Managed Code
     style:
