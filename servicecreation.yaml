@@ -51,7 +51,7 @@ rows:
           - colspan: 1
       - psexec:
         name: PSExec
-        attributes: 
+        attributes:
           - colspan: 1
   - Row2:
     name: Windows API
