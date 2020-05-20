@@ -76,10 +76,12 @@ rows:
       - blue: 115
     entries:
       - msscmr:
+        # yamllint disable-line rule:line-length
         name: 367ABB81-9844-35F1-AD32-98F038001003 </br> [MS-SCMR] </br> \\PIPE\svcctl
         attributes:
           - colspan: 5
       - msrrp:
+        # yamllint disable-line rule:line-length
         name: 338CD001-2244-31F1-AAAA-900038001003 </br> [MS-RRP] </br> \\PIPE\winreg
         attributes:
           - colspan: 3
