@@ -9,74 +9,74 @@ header:
  name: T1208 - Kerberoasting
  colspan: 5
 rows:
-  - Row1:
+ - Row1:
     name: Tools
     style:
-        - red: 230
-        - green: 159
-        - blue: 0
+     - red: 230
+     - green: 159
+     - blue: 0
     entries:
-      - invoke-kerberoast:
+     - invoke-kerberoast:
         name: PowerShell Invoke-Kerberoast
         attributes:
-          - colspan: 1
-      - rubeuskerberoast:
+         - colspan: 1
+     - rubeuskerberoast:
         name: Rubeus kerberoast
         attributes:
-          - colspan: 1
-      - mimikatzkerberosask:
+         - colspan: 1
+     - mimikatzkerberosask:
         name: mimikatz kerberos::ask
         attributes:
-          - colspan: 1
-      - rubeusasktgs:
+         - colspan: 1
+     - rubeusasktgs:
         name: Rubeus asktgs
         attributes:
-          - colspan: 1
-  - Row2:
+         - colspan: 1
+ - Row2:
     name: Managed Code
     style:
-        - red: 86
-        - green: 180
-        - blue: 233
+     - red: 86
+     - green: 180
+     - blue: 233
     entries:
-      - kerberosrequestorsecuritytoken:
+     - kerberosrequestorsecuritytoken:
         name: .NET KerberosRequestorSecurityToken
         attributes:
-          - colspan: 2
-  - Row3:
+         - colspan: 2
+ - Row3:
     name: Windows API Functions
     style:
-        - red: 0
-        - green: 158
-        - blue: 115
+     - red: 0
+     - green: 158
+     - blue: 115
     entries:
-      - initializesecuritycontext:
+     - initializesecuritycontext:
         name: Secur32!InitializeSecurityContext
         attributes:
-          - colspan: 2
-      - lsacallauthenticationpackage:
+         - colspan: 2
+     - lsacallauthenticationpackage:
         name: Secur32!LsaCallAuthenticationPackage
         attributes:
-          - colspan: 1
-  - Row4:
+         - colspan: 1
+ - Row4:
     name: Remote Procedure Call
     style:
-        - red: 240
-        - green: 228
-        - blue: 66
+     - red: 240
+     - green: 228
+     - blue: 66
     entries:
-      - 4f32adc8-6052-4a04-8701-293ccf2096f0:
+     - 4f32adc8-6052-4a04-8701-293ccf2096f0:
         name: 4f32adc8-6052-4a04-8701-293ccf2096f0 </br> C:\Windows\system32\Sspisrv.dll
         attributes:
-          - colspan: 3
-  - Row5:
+         - colspan: 3
+ - Row5:
     name: Network Protocol
     style:
-        - red: 213
-        - green: 94
-        - blue: 0
+     - red: 213
+     - green: 94
+     - blue: 0
     entries:
-      - kerberostgsreqrep:
+     - kerberostgsreqrep:
         name: Kerberos TGS-REQ/REP
         attributes:
-          - colspan: 4
+         - colspan: 4
