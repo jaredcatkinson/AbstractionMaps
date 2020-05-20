@@ -50,6 +50,7 @@ rows:
       - blue: 115
     entries:
       - netsessionenum:
+        # yamllint disable-line rule:line-length
         name: netapi32!NetSessionEnum</br>srvcli!NetSessionEnum</br>rpcrt4!NdrClientCall4
         attributes:
           - colspan: 3
@@ -61,6 +62,7 @@ rows:
       - blue: 66
     entries:
       - netrsessionenum:
+        # yamllint disable-line rule:line-length
         name: '[MS-SRVS] Server Service Remote Protocol</br>4b324fc8-1670-01d3-1278-5a47bf6ee188</br>NetrSessionEnum (Opnum 12)</br>C:\WINDOWS\SYSTEM32\srvsvc.dll'
         attributes:
           - colspan: 4
