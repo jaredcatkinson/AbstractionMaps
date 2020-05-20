@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - site
 jobs:
   buildhtml:
     runs-on: windows-2019
