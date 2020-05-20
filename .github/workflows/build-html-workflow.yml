@@ -179,7 +179,7 @@ jobs:
           }
 
           $sb = [System.Text.StringBuilder]::new()
-          [void]$sb.AppendLine('![](/AbstractionMaps/images/logo.png?pc=20)')
+          [void]$sb.AppendLine('![](/images/logo.png?pc=20)')
           [void]$sb.AppendLine('---')
           [void]$sb.AppendLine('## ATT&CK MATRIX')
           [void]$sb.AppendLine('')
