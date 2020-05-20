@@ -51,11 +51,11 @@ rows:
         - blue : 115
     entries : 
       - initializesecuritycontext : 
-        name : InitializeSecurityContext
+        name : Secur32!InitializeSecurityContext
         attributes : 
           - colspan : 2 
       - lsacallauthenticationpackage : 
-        name : LsaCallAuthenticationPackage
+        name : Secur32!LsaCallAuthenticationPackage</br>
         attributes : 
           - colspan : 1
   - Row4 :
