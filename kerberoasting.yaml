@@ -5,78 +5,79 @@ tactic:
 technique: T1208
 techniquename: Kerberoasting
 description:
-header : 
- name : T1208 - Kerberoasting
- colspan : 5
-rows: 
-  - Row1 : 
-    name : Tools
-    style :
-        - red : 230
-        - green : 159
-        - blue : 0
-    entries : 
-      - invoke-kerberoast :  
-        name : PowerShell Invoke-Kerberoast
-        attributes : 
-          - colspan : 1
-      - rubeuskerberoast : 
-        name : Rubeus kerberoast
-        attributes : 
-          - colspan : 1
-      - mimikatzkerberosask : 
-        name : mimikatz kerberos::ask
-        attributes : 
-          - colspan : 1
-      - rubeusasktgs : 
-        name : Rubeus asktgs
-        attributes : 
-          - colspan : 1
-  - Row2 : 
-    name : Managed Code
-    style :
-        - red : 86
-        - green : 180
-        - blue : 233
-    entries : 
-      - kerberosrequestorsecuritytoken :
-        name : .NET KerberosRequestorSecurityToken
-        attributes : 
-          - colspan : 2
-  - Row3 : 
-    name : Windows API Functions
-    style :
-        - red : 0
-        - green : 158
-        - blue : 115
-    entries : 
-      - initializesecuritycontext : 
-        name : Secur32!InitializeSecurityContext
-        attributes : 
-          - colspan : 2 
-      - lsacallauthenticationpackage : 
-        name : Secur32!LsaCallAuthenticationPackage</br>
-        attributes : 
-          - colspan : 1
-  - Row4 :
-    name : Remote Procedure Call
-    style :
-        - red : 240
-        - green : 228
-        - blue : 66
-    entries : 
-      - 4f32adc8-6052-4a04-8701-293ccf2096f0 :
-        name : 4f32adc8-6052-4a04-8701-293ccf2096f0 </br> C:\Windows\system32\Sspisrv.dll
-        attributes : 
-          - colspan : 3
-  - Row5 : 
-    name : Network Protocol
-    style :
-        - red : 213
-        - green : 94
-        - blue : 0
-    entries : 
-      - kerberostgsreqrep :
-        name : Kerberos TGS-REQ/REP
-        attributes : 
-          - colspan : 4
+header:
+  name: T1208 - Kerberoasting
+  colspan: 5
+rows:
+  - Row1:
+    name: Tools
+    style:
+      - red: 230
+      - green: 159
+      - blue: 0
+    entries:
+      - invoke-kerberoast:
+        name: PowerShell Invoke-Kerberoast
+        attributes:
+          - colspan: 1
+      - rubeuskerberoast:
+        name: Rubeus kerberoast
+        attributes:
+          - colspan: 1
+      - mimikatzkerberosask:
+        name: mimikatz kerberos::ask
+        attributes:
+          - colspan: 1
+      - rubeusasktgs:
+        name: Rubeus asktgs
+        attributes:
+          - colspan: 1
+  - Row2:
+    name: Managed Code
+    style:
+      - red: 86
+      - green: 180
+      - blue: 233
+    entries:
+      - kerberosrequestorsecuritytoken:
+        name: .NET KerberosRequestorSecurityToken
+        attributes:
+          - colspan: 2
+  - Row3:
+    name: Windows API Functions
+    style:
+      - red: 0
+      - green: 158
+      - blue: 115
+    entries:
+      - initializesecuritycontext:
+        name: Secur32!InitializeSecurityContext
+        attributes:
+          - colspan: 2
+      - lsacallauthenticationpackage:
+        name: Secur32!LsaCallAuthenticationPackage
+        attributes:
+          - colspan: 1
+  - Row4:
+    name: Remote Procedure Call
+    style:
+      - red: 240
+      - green: 228
+      - blue: 66
+    entries:
+      - 4f32adc8-6052-4a04-8701-293ccf2096f0:
+        # yamllint disable-line rule:line-length
+        name: 4f32adc8-6052-4a04-8701-293ccf2096f0 </br> C:\Windows\system32\Sspisrv.dll
+        attributes:
+          - colspan: 3
+  - Row5:
+    name: Network Protocol
+    style:
+      - red: 213
+      - green: 94
+      - blue: 0
+    entries:
+      - kerberostgsreqrep:
+        name: Kerberos TGS-REQ/REP
+        attributes:
+          - colspan: 4
