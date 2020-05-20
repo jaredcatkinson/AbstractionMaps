@@ -66,6 +66,7 @@ rows:
       - blue: 66
     entries:
       - 4f32adc8-6052-4a04-8701-293ccf2096f0:
+        # yamllint disable-line rule:line-length
         name: 4f32adc8-6052-4a04-8701-293ccf2096f0 </br> C:\Windows\system32\Sspisrv.dll
         attributes:
           - colspan: 3
