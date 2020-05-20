@@ -1,0 +1,90 @@
+---
+title: T1170 - Mshta
+tactic:
+  - TA0006
+technique: T1170
+techniquename: Mshta
+description:
+header : 
+ name : T1170 - Mshta
+ colspan : 5
+rows: 
+  - Row1 : 
+    name : Tools
+    style :
+        - red : 230
+        - green : 159
+        - blue : 0
+    entries : 
+      - mshta :  
+        name : Mshta
+        attributes : 
+          - colspan : 3
+      - rundll32 : 
+        name : Rundll32
+        attributes : 
+          - colspan : 3
+  - Row2 : 
+    name : Protocol Handlers (Extensible)
+    style :
+        - red : 86
+        - green : 180
+        - blue : 233
+    entries : 
+      - vbscript_mshta :
+        name : vbscript:
+        attributes : 
+          - colspan : 1
+      - javascript_mshta :
+        name : javascript:
+        attributes : 
+          - colspan : 1
+      - unknown_mshta :
+        name : ???:
+        attributes : 
+          - colspan : 1
+       - vbscript_rundll32 :
+        name : vbscript:
+        attributes : 
+          - colspan : 1
+      - javascript_rundll32 :
+        name : javascript:
+        attributes : 
+          - colspan : 1
+      - unknown_rundll32 :
+        name : ???:
+        attributes : 
+          - colspan : 1
+  - Row3 : 
+    name : COM CLSID
+    style :
+        - red : 0
+        - green : 158
+        - blue : 115
+    entries : 
+      - 3050F3B2-98B5-11CF-BB82-00AA00BDCE0B :
+        name : 3050F3B2-98B5-11CF-BB82-00AA00BDCE0B</br>Microsoft HTML Javascript Pluggable Protocol
+        attributes : 
+          - colspan : 6
+  - Row4 :
+    name : COM Server
+    style :
+        - red : 240
+        - green : 228
+        - blue : 66
+    entries : 
+      - mshtml :
+        name : C:\Windows\System32\mshtml.dll
+        attributes : 
+          - colspan : 6
+  - Row5 : 
+    name : COM API Function
+    style :
+        - red : 213
+        - green : 94
+        - blue : 0
+    entries : 
+      - runhtmlapplication :
+        name : RunHTMLApplication
+        attributes : 
+          - colspan : 6
