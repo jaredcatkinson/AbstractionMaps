@@ -251,6 +251,8 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
         with:
+          ref: gh-pages
+          path: gh-pages
           persist-credentials: false
       - name: Download Artifacts 🔻
         uses: actions/download-artifact@v1
