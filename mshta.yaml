@@ -12,24 +12,24 @@ rows:
   - Row1:
     name: Tools
     style:
-     - red: 230
-     - green: 159
-     - blue: 0
+      - red: 230
+      - green: 159
+      - blue: 0
     entries:
-     - mshta:
+      - mshta:
         name: Mshta
         attributes:
-         - colspan: 3
-     - rundll32:
+          - colspan: 3
+      - rundll32:
         name: Rundll32
         attributes:
-         - colspan: 3
+          - colspan: 3
   - Row2:
     name: Protocol Handlers (Extensible)
     style:
-        - red: 86
-        - green: 180
-        - blue: 233
+      - red: 86
+      - green: 180
+      - blue: 233
     entries:
       - vbscript_mshta:
         name: 'vbscript:'
@@ -43,7 +43,7 @@ rows:
         name: '???:'
         attributes:
           - colspan: 1
-       - vbscript_rundll32:
+      - vbscript_rundll32:
         name: 'vbscript:'
         attributes:
           - colspan: 1
@@ -58,9 +58,9 @@ rows:
   - Row3:
     name: COM CLSID
     style:
-        - red: 0
-        - green: 158
-        - blue: 115
+      - red: 0
+      - green: 158
+      - blue: 115
     entries:
       - 3050F3B2-98B5-11CF-BB82-00AA00BDCE0B:
         name: 3050F3B2-98B5-11CF-BB82-00AA00BDCE0B</br>Microsoft HTML Javascript Pluggable Protocol
@@ -69,9 +69,9 @@ rows:
   - Row4:
     name: COM Server
     style:
-        - red: 240
-        - green: 228
-        - blue: 66
+      - red: 240
+      - green: 228
+      - blue: 66
     entries:
       - mshtml:
         name: C:\Windows\System32\mshtml.dll
@@ -80,9 +80,9 @@ rows:
   - Row5:
     name: COM API Function
     style:
-        - red: 213
-        - green: 94
-        - blue: 0
+      - red: 213
+      - green: 94
+      - blue: 0
     entries:
       - runhtmlapplication:
         name: RunHTMLApplication
