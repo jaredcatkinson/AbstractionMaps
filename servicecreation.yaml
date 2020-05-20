@@ -1,0 +1,111 @@
+---
+title: T1050 - New Service
+tactic:
+  - TA0003
+  - TA0004
+technique: T1050
+techniquename: New Service
+description:
+header : 
+ name : T1050 - New Service
+ colspan : 10
+rows: 
+  - Row1 : 
+    name : Tools
+    style :
+        - red : 230
+        - green : 159
+        - blue : 0
+    entries : 
+      - sc :  
+        name : sc.exe
+        attributes : 
+          - colspan : 1
+      - newservice : 
+        name : PowerShell New-Service
+        attributes : 
+          - colspan : 1
+      - invokepsexec : 
+        name : Invoke-PSExec
+        attributes : 
+          - colspan : 1
+      - csexec : 
+        name : CSExec
+        attributes : 
+          - colspan : 1
+      - sharpsc : 
+        name : SharpSC
+        attributes : 
+          - colspan : 1
+      - reg : 
+        name : reg.exe
+        attributes : 
+          - colspan : 1
+      - regedit : 
+        name : regedit.exe
+        attributes : 
+          - colspan : 1
+      - psreg : 
+        name : PS Registry Edit
+        attributes : 
+          - colspan : 1
+      - psexec : 
+        name : PSExec
+        attributes : 
+          - colspan : 1
+  - Row2 : 
+    name : Windows API
+    style :
+        - red : 86
+        - green : 180
+        - blue : 233
+    entries : 
+      - openscmanager :
+        name : OpenSCManager/CreateService
+        attributes : 
+          - colspan : 5
+       - regkeycreateex :
+        name : RegKeyCreateEx/RegSetValueEx
+        attributes : 
+          - colspan : 3
+  - Row3 : 
+    name : RPC Interface/Named Pipe
+    style :
+        - red : 0
+        - green : 158
+        - blue : 115
+    entries : 
+      - msscmr : 
+        name : 367ABB81-9844-35F1-AD32-98F038001003 </br> [MS-SCMR] </br> \\PIPE\svcctl
+        attributes : 
+          - colspan : 5
+      - msrrp : 
+        name : 338CD001-2244-31F1-AAAA-900038001003 </br> [MS-RRP] </br> \\PIPE\winreg
+        attributes : 
+          - colspan : 3
+  - Row4 :
+    name : RPC Method
+    style :
+        - red : 240
+        - green : 228
+        - blue : 66
+    entries : 
+      - openscmanager :
+        name : ROpenSCManager/RCreateService
+        attributes : 
+          - colspan : 5
+      - createkey :
+        name : BaseRegCreateKey
+        attributes : 
+          - colspan : 4
+  - Row5 : 
+    name : Registry Service Database
+    style :
+        - red : 213
+        - green : 94
+        - blue : 0
+    entries : 
+      - services :
+        name : HKLM\SYSTEM\CurrentControlSet\Services
+        attributes : 
+          - colspan : 9
