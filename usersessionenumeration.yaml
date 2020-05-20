@@ -5,73 +5,73 @@ technique: T1033
 techniquename: System Owner/User Discovery
 description:
 header:
- name: T1033 - User Session Enumeration
- colspan: 5
+  name: T1033 - User Session Enumeration
+  colspan: 5
 rows:
- - Row1:
+  - Row1:
     name: Tools
     style:
-     - red: 230
-     - green: 159
-     - blue: 0
+      - red: 230
+      - green: 159
+      - blue: 0
     entries:
-     - sharphound:
+      - sharphound:
         name: Sharphound
         attributes:
-         - colspan: 1
-     - powerview:
+          - colspan: 1
+      - powerview:
         name: Get-NetSession</br>(PowerView)
         attributes:
-         - colspan: 1
-     - netsess:
+          - colspan: 1
+      - netsess:
         name: NetSess
         attributes:
-         - colspan: 1
-     - impacket:
+          - colspan: 1
+      - impacket:
         name: Impacket
         attributes:
-         - colspan: 1
+          - colspan: 1
   - Row2:
     name: Managed Code
     style:
-     - red: 86
-     - green: 180
-     - blue: 233
+      - red: 86
+      - green: 180
+      - blue: 233
     entries:
-     - pinvoke:
+      - pinvoke:
         name: Platform Invoke (P/Invoke)
         attributes:
-         - colspan: 2
+          - colspan: 2
   - Row3:
     name: Windows API Functions
     style:
-     - red: 0
-     - green: 158
-     - blue: 115
+      - red: 0
+      - green: 158
+      - blue: 115
     entries:
-     - netsessionenum:
+      - netsessionenum:
         name: netapi32!NetSessionEnum</br>srvcli!NetSessionEnum</br>rpcrt4!NdrClientCall4
         attributes:
-         - colspan: 3
+          - colspan: 3
   - Row4:
     name: Remote Procedure Call
     style:
-     - red: 240
-     - green: 228
-     - blue: 66
+      - red: 240
+      - green: 228
+      - blue: 66
     entries:
-     - netrsessionenum:
+      - netrsessionenum:
         name: '[MS-SRVS] Server Service Remote Protocol</br>4b324fc8-1670-01d3-1278-5a47bf6ee188</br>NetrSessionEnum (Opnum 12)</br>C:\WINDOWS\SYSTEM32\srvsvc.dll'
         attributes:
-         - colspan: 4
+          - colspan: 4
   - Row5:
     name: Network Protocol
     style:
-     - red: 213
-     - green: 94
-     - blue: 0
+      - red: 213
+      - green: 94
+      - blue: 0
     entries:
-     - rpcoversmb:
+      - rpcoversmb:
         name: RPC over SMB (ncacn_np)</br>\PIPE\srvsvc
         attributes:
-         - colspan: 4
+          - colspan: 4
