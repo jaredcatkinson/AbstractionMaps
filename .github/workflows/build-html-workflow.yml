@@ -238,7 +238,7 @@ jobs:
             $newPath = $newPath -replace "content", "public"
             (Get-Content -Path $newPath -Raw) -replace 'MAP GOES HERE',$content | Out-File -FilePath $newPath
           }
-          "abstractionmaps.com" | Out-File -FilePath CNAME
+          "abstractionmaps.com" | Out-File -FilePath ./public/CNAME
           ls
       - name: Upload Artifacts 🔺
         uses: actions/upload-artifact@v1
