@@ -66,7 +66,7 @@ rows:
   - Row5:
     name: RPC Method
     style:
-    - red: 213
+      - red: 213
       - green: 94
       - blue: 0
     entries:
