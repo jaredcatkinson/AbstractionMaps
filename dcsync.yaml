@@ -36,7 +36,8 @@ rows:
       - blue: 233
     entries:
       - extendedrights:
-        name: 0x100 - Control Access / {19195a5b-6da0–11d0-afd3–00c04fd930c9} — Domain-DNS Class(Object)/ {1131f6ad-9c07–11d1-f79f-00c04fc2dcd2}- DS-Replication-Get-Changes-All(Extended Right)
+        # yamllint disable-line rule:line-length
+        name: 0x100 - Control Access </br> {19195a5b-6da0–11d0-afd3–00c04fd930c9} — Domain-DNS Class(Object) </br> {1131f6ad-9c07–11d1-f79f-00c04fc2dcd2}- DS-Replication-Get-Changes-All(Extended Right)
         attributes:
           - colspan: 3
   - Row3:
@@ -58,7 +59,8 @@ rows:
       - blue: 66
     entries:
       - rpcinterface:
-        name: DRSUAPI (e3514235-4b06-11d1-ab04-00c04fc2dcd2) / C:\windows\system32\ntdsai.dll / C:\windows\system32\ntdsapi.dll
+        # yamllint disable-line rule:line-length
+        name: DRSUAPI (e3514235-4b06-11d1-ab04-00c04fc2dcd2) </br> C:\windows\system32\ntdsai.dll </br> C:\windows\system32\ntdsapi.dll
         attributes:
           - colspan: 3
   - Row5:
