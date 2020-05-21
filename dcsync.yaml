@@ -2,7 +2,7 @@
 title: T1003.006 - DCSYNC
 tactic:
   - TA0006
-technique: T1208
+technique: T1003.006 
 techniquename: DCSYNC
 description:
 header:
