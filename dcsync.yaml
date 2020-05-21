@@ -1,12 +1,12 @@
 ---
-title: T1003 - DCSYNC
+title: T1003.006 - DCSYNC
 tactic:
   - TA0006
 technique: T1208
 techniquename: DCSYNC
 description:
 header:
-  name: T1003 - DCSYNC
+  name: T1003.006 - DCSYNC
   colspan: 4
 rows:
   - Row1:
