@@ -33,6 +33,10 @@ rows:
         name: CSExec
         attributes:
           - colspan: 1
+      - psexec:
+        name: PSExec
+        attributes:
+          - colspan: 1
       - sharpsc:
         name: SharpSC
         attributes:
@@ -49,10 +53,6 @@ rows:
         name: PS Registry Edit
         attributes:
           - colspan: 1
-      - psexec:
-        name: PSExec
-        attributes:
-          - colspan: 1
   - Row2:
     name: Windows API
     style:
@@ -63,7 +63,7 @@ rows:
       - openscmanager:
         name: OpenSCManager/CreateService
         attributes:
-          - colspan: 5
+          - colspan: 6
       - regkeycreateex:
         name: RegKeyCreateEx/RegSetValueEx
         attributes:
@@ -79,7 +79,7 @@ rows:
         # yamllint disable-line rule:line-length
         name: 367ABB81-9844-35F1-AD32-98F038001003 </br> [MS-SCMR] </br> \\PIPE\svcctl
         attributes:
-          - colspan: 5
+          - colspan: 6
       - msrrp:
         # yamllint disable-line rule:line-length
         name: 338CD001-2244-31F1-AAAA-900038001003 </br> [MS-RRP] </br> \\PIPE\winreg
@@ -95,7 +95,7 @@ rows:
       - openscmanager:
         name: ROpenSCManager/RCreateService
         attributes:
-          - colspan: 5
+          - colspan: 6
       - createkey:
         name: BaseRegCreateKey
         attributes:
