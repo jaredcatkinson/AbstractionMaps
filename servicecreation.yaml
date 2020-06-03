@@ -99,7 +99,7 @@ rows:
       - createkey:
         name: BaseRegCreateKey
         attributes:
-          - colspan: 4
+          - colspan: 3
   - Row5:
     name: Registry Service Database
     style:
