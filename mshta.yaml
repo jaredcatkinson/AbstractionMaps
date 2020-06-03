@@ -7,7 +7,7 @@ techniquename: Mshta
 description:
 header:
   name: T1170 - Mshta
-  colspan: 5
+  colspan: 6
 rows:
   - Row1:
     name: Tools
